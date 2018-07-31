@@ -30,7 +30,22 @@ namespace ObligatorioDominio
 
         }
 
+        #region Propiedades
 
+        public List<Menu> Menus
+        {
+
+            get
+            {
+                return this.menus;
+
+            }
+
+
+        }
+
+
+        #endregion
 
         #region Metodos
 

@@ -10,6 +10,60 @@ namespace ObligatorioAplicacion
    public class Fachada
     {
 
+        private static Fachada instancia;
+
+        public static Fachada Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                {
+                    instancia = new Fachada();
+                }
+                return instancia;
+            }
+        }
+
+
+       
+        public List<Menu> Menus()
+        {
+
+
+            return CMenu.Instancia.Menus; 
+
+        }
+
+
+
+
+        #region Metodos
+
+        public List<Menu> MostrarMenusIngredienteFachada(Ingrediente i)
+        {
+
+            List<Menu> menusPorIngrediente = new List<Menu>();
+
+           foreach(Menu m in CMenu.Instancia.Menus)
+
+                if (m.ObtenerIngrediente(i))
+                {
+
+                    menusPorIngrediente.Add(m);
+
+                }
+
+
+
+
+            return menusPorIngrediente;
+
+        }
+
+        
+
+
+        #endregion
 
 
 
