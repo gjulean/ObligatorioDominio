@@ -12,7 +12,6 @@ namespace ObligatorioDominio
         #region Atributos
 
         private int numero;
-
         private int capacidad;
         private string ubicacion;
 
