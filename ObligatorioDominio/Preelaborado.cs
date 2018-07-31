@@ -12,20 +12,20 @@ namespace ObligatorioDominio
 
         #region Atributos
         private string nombreProveedor;
-        private decimal precio;
-        private decimal porcentaje;
+        private decimal precioPreeaborado;
+        
         #endregion
 
 
 
         #region Constructor
 
-        public Preelaborado(string descripcion, string nombreProveedor, decimal precio, decimal porcentaje, decimal porcentajeMenu):base(descripcion, porcentaje)
+        public Preelaborado(string descripcion, string nombreProveedor, decimal precio, decimal porcentaje):base(descripcion, porcentaje)
         {
 
             this.nombreProveedor = nombreProveedor;
-            this.precio = CalcularPrecio();
-            this.porcentaje = porcentaje;
+            this.precioPreeaborado = CalcularPrecio();
+           
 
         }
 
@@ -34,20 +34,64 @@ namespace ObligatorioDominio
         #endregion
 
 
+        #region Propiedades
+
+
+
+
+        #endregion
+
+        public string NombreProveedor
+        {
+
+            get
+            {
+                return this.nombreProveedor;
+
+            }
+
+            set
+            {
+
+                this.nombreProveedor = value;
+
+            }
+
+        }
+
+
+
+        public decimal PrecioPreelaborado
+        {
+
+            get
+            {
+
+                return this.precioPreeaborado;
+
+            }
+
+
+            set
+            {
+
+                this.precioPreeaborado = value;
+
+            }
+
+        }
+
+
+
         #region Metodos
 
         public override decimal CalcularPrecio()
         {
 
-            
-
-            decimal precio = 0;
-
-            precio = this.precio + ((this.porcentaje * 100) / this.precio);
-
-
 
             return precio;
+
+
         }
 
 

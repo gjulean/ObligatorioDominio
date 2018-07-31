@@ -136,7 +136,7 @@ namespace ObligatorioDominio
                 if (m == null)
                 {
 
-                   m = new Preelaborado(descripcion, nombreProveedor, precio, porcentaje, porcentajeMenu);
+                   m = new Preelaborado(descripcion, nombreProveedor, precio, porcentaje);
                     menus.Add(m);
                     mensaje = "El menu se a dado de alta";
 
@@ -199,6 +199,48 @@ namespace ObligatorioDominio
 
 
             return m;
+        }
+
+
+        public string ModificarMenuPreelaborado(int id, string descripcion, string nombreProveedor, decimal precio, decimal porcentaje)
+        {
+            string mensaje = "";
+            Menu m = BuscarMenu(id);
+
+            if (id > 0)
+            {
+
+                if (m != null)
+                {
+                    if (descripcion != m.Descripcion)
+                    {
+
+
+                    }
+
+                    if(m.)
+
+
+
+
+                }
+
+                else
+                {
+
+                    mensaje = "El menu no existe";
+                }
+
+            }
+
+            else
+            {
+
+                mensaje = "El id tiene que ser un numero mayor a 0";
+            }
+
+
+            return mensaje;
         }
 
 
