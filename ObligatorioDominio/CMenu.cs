@@ -203,14 +203,17 @@ namespace ObligatorioDominio
 
 
 
-        public List<Menu> MostraMenuConPrecios(int id)
+        public string MostraMenuConPrecios()
         {
-            List<Menu> menusPrecios = new List<Menu>();
+           
+
+            string menusPrecios = "";
+
 
             foreach(Menu m in menus)
             {
 
-                menusPrecios.Add(m);
+                menusPrecios += m.Descripcion + " " + m.Precio;
 
             }
 
@@ -225,28 +228,7 @@ namespace ObligatorioDominio
 
 
 
-        //se hace en CReserva
-       /* public List<Menu> MenusMasReservados()
-        {
-            List<Menu> menusMasReservados = new List<Menu>();
-
-            int maximo = int.MinValue;
-
-            foreach (Menu m in menus)
-            {
-                //if(    )
-
-
-
-            }
-
-
-
-
-
-
-            return menusMasReservados;
-        }*/
+      
 
 
         public List<Menu> MostrarMenusIngrediente(Ingrediente i)
