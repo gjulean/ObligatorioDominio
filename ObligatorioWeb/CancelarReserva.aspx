@@ -6,17 +6,17 @@
         <br />
     </p>
 &nbsp;
-    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="LblCancelarReserva" runat="server" Text="Seleccionar reserva"></asp:Label>
 &nbsp;&nbsp;
-    <asp:DropDownList ID="DropDownList1" runat="server">
+    <asp:DropDownList ID="DDlCancelarReserva" runat="server">
     </asp:DropDownList>
     <p>
     </p>
-    <asp:Button ID="Button1" runat="server" Text="Button" />
+    <asp:Button ID="BtnCancelarReserva" runat="server" Text="Guardar" />
     <br />
     <p>
     </p>
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="LblMensajeCancelarReserva" runat="server"></asp:Label>
     <p>
     </p>
     <p>
