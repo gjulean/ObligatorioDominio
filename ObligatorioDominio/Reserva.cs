@@ -91,7 +91,7 @@ namespace ObligatorioDominio
 
         #region Metodos
 
-
+        //metodo para buscar menu en reserva con fecha de hoy para luego eliminarlo
         public Menu  DevolverMenuEnReserva(Menu me)
         {
             int i = 0;
@@ -106,6 +106,33 @@ namespace ObligatorioDominio
 
             return m;
         }
+        
+
+
+        public bool BuscarMenu(Menu m)
+        {
+            bool encuentra = false;
+            int i = 0;
+
+
+            while(i<menus.Count && !encuentra)
+            {
+                if (menus[i].Equals(m))
+                {
+
+                    encuentra = true;
+
+
+                }
+                i++;
+
+            }
+
+            return encuentra;
+
+        }
+
+
 
 
 

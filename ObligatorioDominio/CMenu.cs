@@ -224,7 +224,9 @@ namespace ObligatorioDominio
         }
 
 
-        public List<Menu> MenusMasReservados()
+
+        //se hace en CReserva
+       /* public List<Menu> MenusMasReservados()
         {
             List<Menu> menusMasReservados = new List<Menu>();
 
@@ -244,7 +246,7 @@ namespace ObligatorioDominio
 
 
             return menusMasReservados;
-        }
+        }*/
 
 
         public List<Menu> MostrarMenusIngrediente(Ingrediente i)

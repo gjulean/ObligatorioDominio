@@ -26,13 +26,7 @@ namespace ObligatorioAplicacion
 
 
        
-        public List<Menu> Menus()
-        {
-
-
-            return CMenu.Instancia.Menus; 
-
-        }
+        
 
 
 

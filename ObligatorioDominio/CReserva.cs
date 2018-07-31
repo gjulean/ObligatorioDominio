@@ -29,6 +29,17 @@ namespace ObligatorioDominio
 
         }
 
+        public List<Menu> Menus()
+        {
+
+
+            return CMenu.Instancia.Menus;
+
+        }
+
+
+
+
         #region Metodos
 
         public string AltaReserva(string nombreCliente, int cantPersonas, DateTime fechayhora, int  nromesa, List<Menu> listaMenus)
@@ -175,6 +186,37 @@ namespace ObligatorioDominio
 
             return reservasFecha;
         }
+
+
+
+
+        public List<Menu> MenuMasReservado()
+        {
+
+            List<Menu> menusMasReservados = new List<Menu>();
+            int mayor = int.MinValue;
+
+            foreach (Menu m in Menus())
+            {
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+            return menusMasReservados;
+        }
+
+
+
 
 
 
