@@ -198,20 +198,36 @@ namespace ObligatorioDominio
 
             foreach (Menu m in Menus())
             {
+                int cantMenus = 0;
+                foreach(Reserva r in reservas)
+                {
+                    if (r.BuscarMenu(m))
+                    {
+                        cantMenus++;
 
+                    }
+
+
+                }
+
+                if(cantMenus > mayor)
+                {
+                    mayor = cantMenus;
+                    menusMasReservados.Clear();
+                    menusMasReservados.Add(m);
+                }
+
+                else if (cantMenus == mayor)
+                {
+
+                    menusMasReservados.Add(m);
+
+                }
 
 
             }
 
-
-
-
-
-
-
-
-
-
+            
             return menusMasReservados;
         }
 
