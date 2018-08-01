@@ -46,7 +46,11 @@ namespace ObligatorioWeb
 
         protected void BtnCerrarsesion_Click(object sender, EventArgs e)
         {
-            
+
+            Session["rol"] = "";
+            Session["nombreUsuario"] = "";
+            Response.Redirect("Login.aspx");
+
         }
     }
 }
