@@ -132,6 +132,25 @@ namespace ObligatorioAplicacion
 
 
 
+        public string DevolverRolFachada(string usuario, string clave)
+        {
+            string rol = "";
+
+            if(usuario != "" && clave !="")
+            {
+
+                rol = CUsuario.Instancia.BuscarRol(usuario, clave);
+
+            }
+
+
+            return rol;
+        }
+
+
+
+
+
         #endregion
 
 

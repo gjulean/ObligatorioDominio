@@ -11,6 +11,35 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <p>
+            <asp:Button ID="BtnCerrarsesion" runat="server" OnClick="BtnCerrarsesion_Click" Text="Cerrar sesion" />
+        </p>
+        <asp:Panel ID="PnlAdministrador" runat="server" Width="929px">
+            <asp:Menu ID="MenuAdministrador" runat="server" Orientation="Horizontal">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/MenusConPrecio.aspx" Text="Mostrar Menus" Value="Mostrar Menus"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/RealizarReserva.aspx" Text="Realizar Reserva" Value="Nuevo elemento"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/ReservasPorFecha.aspx" Text="Mostrar Reservas fecha" Value="Mostrar Reservas fecha"></asp:MenuItem>
+                    <asp:MenuItem Text="Nuevo elemento" Value="Nuevo elemento"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/MostrarMenusPorIngrediente.aspx" Text="Mostrar menu por ingrediente" Value="Mostrar menu por ingrediente"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/CancelarReserva.aspx" Text="Cancelar reserva" Value="Cancelar reserva"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
+        </asp:Panel>
+        <asp:Panel ID="PnlCheff" runat="server">
+            <asp:Menu ID="MenuCheff" runat="server" Orientation="Horizontal">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/ModificarIngredientes.aspx" Text="Modificar ingredientes menu" Value="Modificar ingredientes menu"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
+        </asp:Panel>
+        <p>
+            <br />
+        </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         

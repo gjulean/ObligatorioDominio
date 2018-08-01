@@ -51,6 +51,33 @@ namespace ObligatorioDominio
         }
 
 
+        public string BuscarRol(string usuario, string clave)
+        {
+            string rol = "";
+            int i = 0;
+            bool encuentra = false;
+
+
+            while (i < usuarios.Count && !encuentra)
+            {
+                if (usuarios[i].NombreUsuario == usuario && usuarios[i].Clave == clave)
+                {
+
+                    rol = usuarios[i].Tipo;
+                    encuentra = true;
+
+                }
+                i++;
+            }
+
+
+
+
+            return rol;
+
+        }
+
+
 
 
     }
