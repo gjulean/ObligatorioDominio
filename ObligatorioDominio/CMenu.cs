@@ -218,7 +218,7 @@ namespace ObligatorioDominio
 
                     }
 
-                    if(m.)
+                   // if(m.)
 
 
 
@@ -277,6 +277,8 @@ namespace ObligatorioDominio
         {
             List<Menu> menusIngrediente = new List<Menu>();
 
+            if (i != null) { 
+
             foreach (Menu m in menus)
             {
                 if (m.ObtenerIngrediente(i))
@@ -288,8 +290,8 @@ namespace ObligatorioDominio
 
 
             }
-            
 
+            }
             return menusIngrediente;
         }
 

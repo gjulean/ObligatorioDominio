@@ -33,26 +33,7 @@ namespace ObligatorioAplicacion
 
         #region Metodos
 
-        public List<Menu> MostrarMenusIngredienteFachada(Ingrediente i)
-        {
-            
-            List<Menu> menusPorIngrediente = new List<Menu>();
-
-           foreach(Menu m in CMenu.Instancia.Menus)
-
-                if (m.ObtenerIngrediente(i))
-                {
-
-                    menusPorIngrediente.Add(m);
-
-                }
-
-
-
-
-            return menusPorIngrediente;
-
-        }
+       
 
         
         public string AltaReservaFachada(string nombreCliente, int cantPersonas, DateTime fechayhora, int nromesa, List<Menu> listaMenus)
@@ -82,18 +63,72 @@ namespace ObligatorioAplicacion
             return mensaje;
         }
 
-        public List<Reserva> MostrarReservaFecha(DateTime fecha)
+        public List<Reserva> MostrarReservaFechaFachada(DateTime fecha)
         {
+            List<Reserva> reservasFecha = new List<Reserva>();
+
+            if (fecha>DateTime.MinValue)
+            {
+
+                reservasFecha.AddRange(CReserva.Instancia.MostrarReservaFecha(fecha));
 
 
-            //if (fecha > DateTime.MinValue) { 
-            return CReserva.Instancia.MostrarReservaFecha(fecha);
+            }
 
 
-           // }
+
+
+            return reservasFecha;
         }
 
 
+
+        public List<Menu> MostrarMenusIngredienteFachada(int id)
+        {
+            Ingrediente ing = CIngrediente.Instancia.BuscarIngrediente(id);
+            List<Menu> menusIngrediente = new List<Menu>();
+
+            if (ing != null)
+            {
+
+                menusIngrediente.AddRange(CMenu.Instancia.MostrarMenusIngrediente(ing));
+
+
+            }
+
+            return menusIngrediente;
+        }
+
+
+
+
+
+        public string MostraMenuConPreciosFachada()
+        {
+
+
+            return CMenu.Instancia.MostraMenuConPrecios();
+
+
+
+        }
+
+
+
+        public string CancelarReservaFachada(string nombreCliente)
+        {
+            string mensaje = "";
+
+            if (nombreCliente != null)
+            {
+
+                mensaje = CReserva.Instancia.BajaReserva(nombreCliente);
+
+
+            }
+
+            return mensaje;
+        }
 
 
 
