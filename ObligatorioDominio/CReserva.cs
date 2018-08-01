@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObligatorioDominio
 {
-    class CReserva
+    public class CReserva
     {
 
         private static CReserva instancia;
@@ -45,7 +45,7 @@ namespace ObligatorioDominio
         public string AltaReserva(string nombreCliente, int cantPersonas, DateTime fechayhora, int  nromesa, List<Menu> listaMenus)
         {
             string mensaje = "";
-            if (nombreCliente != "" && cantPersonas > 0 && fechayhora > DateTime.MinValue && nromesa>0)
+            if (nombreCliente != "" && cantPersonas > 0 && fechayhora > DateTime.MinValue && nromesa>0  && fechayhora > DateTime.Today)
             {
                 Reserva r = BuscarReserva(nombreCliente);
                 Mesa mesa = CMesa.Instancia.BuscarMesa(nromesa);
