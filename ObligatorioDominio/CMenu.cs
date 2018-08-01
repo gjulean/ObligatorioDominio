@@ -214,11 +214,11 @@ namespace ObligatorioDominio
                 {
                     if (descripcion != m.Descripcion)
                     {
-
-
+                        descripcion = m.Descripcion;
+                        mensaje = "Se ha modificado la descripcion a: " + descripcion + "\n";
                     }
 
-                   // if(m.)
+                    //if(nombreProveedor != m.)
 
 
 
