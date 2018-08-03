@@ -27,6 +27,20 @@ namespace ObligatorioDominio
 
         }
 
+        public decimal Cantidad
+        {
+            get
+            {
+                return this.cantidad;
+
+            }
+
+            set
+            {
+                this.cantidad = value;
+            }
+        }
+
 
         #endregion
 

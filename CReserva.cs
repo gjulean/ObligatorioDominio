@@ -53,7 +53,7 @@ namespace ObligatorioDominio
                 {
                     if (cantPersonas > listaMenus.Count)
                     {
-                        if (mesa.Capacidad > cantPersonas)
+                        if (mesa.Capacidad >= cantPersonas)
                         {
                             r = new Reserva(nombreCliente, cantPersonas, fechayhora, mesa, listaMenus);
                             reservas.Add(r);

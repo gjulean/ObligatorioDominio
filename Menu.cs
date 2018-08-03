@@ -15,7 +15,7 @@ namespace ObligatorioDominio
         private static int ultId;
         private string descripcion;
         private decimal precio;
-        private decimal porcentaje;
+        
 
         #endregion
 
@@ -48,20 +48,21 @@ namespace ObligatorioDominio
 
         }
 
+       
 
 
         #endregion
 
         #region Constructor
 
-        public Menu(string descripcion, decimal porcentaje)
+        public Menu(string descripcion)
         {
 
             this.descripcion = descripcion;
 
             //se calculan, no se reciben por parametro
-           this.precio = CalcularPrecioTotal();
-            this.porcentaje = porcentaje;
+            this.precio = CalcularPrecio();
+            
             
             this.id = Menu.ultId;
             Menu.ultId++;
@@ -81,19 +82,17 @@ namespace ObligatorioDominio
         public abstract bool ObtenerIngrediente(Ingrediente i);
 
 
-        public decimal CalcularPrecioTotal()
-        {
-            decimal precio = 0;
+       
 
-            precio = CalcularPrecio() + ((this.porcentaje * 100) / CalcularPrecio());
-
-
-
-            return precio;
-        }
-
+        
 
         #endregion
+
+        public abstract IngredienteCantidad BuscarIngredienteCantidad(Ingrediente i);
+        public abstract List<Ingrediente> ListarIngredientesCantidad();
+        public abstract bool ConfirmarPropio();
+
+
 
 
     }

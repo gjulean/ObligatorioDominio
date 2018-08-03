@@ -13,6 +13,7 @@ namespace ObligatorioDominio
         #region Atributos
         private string nombreProveedor;
         private decimal precioPreeaborado;
+        private static decimal porcentaje = new decimal (1.5);
         
         #endregion
 
@@ -20,11 +21,12 @@ namespace ObligatorioDominio
 
         #region Constructor
 
-        public Preelaborado(string descripcion, string nombreProveedor, decimal precio, decimal porcentaje):base(descripcion, porcentaje)
+        public Preelaborado(string descripcion, string nombreProveedor, decimal precio):base(descripcion)
         {
 
             this.nombreProveedor = nombreProveedor;
             this.precioPreeaborado = CalcularPrecio();
+            
            
 
         }
@@ -81,6 +83,26 @@ namespace ObligatorioDominio
 
         }
 
+        public static decimal Porcentaje
+        {
+
+            get
+            {
+
+                return porcentaje;
+
+            }
+
+
+            set
+            {
+
+                porcentaje = value;
+
+            }
+
+        }
+
 
 
         #region Metodos
@@ -89,7 +111,7 @@ namespace ObligatorioDominio
         {
 
 
-            return precio;
+            return precioPreeaborado;
 
 
         }
@@ -103,10 +125,23 @@ namespace ObligatorioDominio
 
         }
 
+        public override IngredienteCantidad BuscarIngredienteCantidad(Ingrediente i)
+        {
+            return null;
+        }
 
+        public override List<Ingrediente> ListarIngredientesCantidad()
+        {
+            return null;
+        }
 
-
+        public override bool ConfirmarPropio()
+        {
+            return false;
+        }
         #endregion
 
     }
+
+    
 }

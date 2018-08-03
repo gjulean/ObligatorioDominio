@@ -33,7 +33,18 @@ namespace ObligatorioDominio
 
 
         #region Metodos
+        public void CargarDatosPruebaIngrediente(string[] datos)
+        {
+            int codigo = 0;
+            int.TryParse(datos[0], out codigo);
+            string descripcion = datos[1];
+            int precio = 0;
+            int.TryParse(datos[2], out precio);
+            
 
+            this.AltaIngrediente(codigo,descripcion,precio);
+
+        }
         public Ingrediente BuscarIngrediente(int codigo)
         {
 

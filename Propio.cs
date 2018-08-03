@@ -17,7 +17,7 @@ namespace ObligatorioDominio
 
         #region Constructor
 
-        public Propio(string descripcion ,Chef chef, decimal horasElavoracion, decimal porcentaje,List<IngredienteCantidad> ingredientes) : base(descripcion, porcentaje)
+        public Propio(string descripcion ,Chef chef, decimal horasElavoracion,List<IngredienteCantidad> ingredientes) : base(descripcion)
         {
 
             this.chef = chef;
@@ -107,10 +107,37 @@ namespace ObligatorioDominio
             return tiene;
         }
 
+        public override IngredienteCantidad BuscarIngredienteCantidad(Ingrediente i)
+        {
+            int x = 0;
+            IngredienteCantidad ingC = null;
+            while (x > ingredientesCantidad.Count && ingC == null)
+            {
+                if (ingredientesCantidad[x].Equals(i))
+                {
+                    ingC = ingredientesCantidad[x];
+                }x++;
+            }
 
+            return ingC;
+        }
+
+        public override List<Ingrediente> ListarIngredientesCantidad()
+        {
+            List<Ingrediente> listaIng = new List<Ingrediente>();
+            foreach(IngredienteCantidad i in ingredientesCantidad)
+            {
+                listaIng.Add(i.Ingrediente);
+            }
+
+            return listaIng;
+        }
         #endregion
 
-
+        public override bool ConfirmarPropio()
+        {
+            return true;
+        }
 
         //Prueba
     }

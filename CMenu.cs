@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ObligatorioDominio
 {
-   public class CMenu
+   public class CMenu 
     {
 
         private static CMenu instancia;
@@ -49,10 +49,10 @@ namespace ObligatorioDominio
 
         #region Metodos
 
-        public string AltaMenuPropio(string descripcion, string documento, decimal horasElavoracion, decimal porcentaje,List<IngredienteCantidad> ingredientes)
+        public string AltaMenuPropio(string descripcion, string documento, decimal horasElavoracion,List<IngredienteCantidad> ingredientes)
         {
             string mensaje = "";
-            if (descripcion!="" &&documento!="" && horasElavoracion > 0 && porcentaje>0)
+            if (descripcion!="" &&documento!="" && horasElavoracion > 0)
             {
                 if(ingredientes.Count > 0)
                 {
@@ -62,7 +62,7 @@ namespace ObligatorioDominio
                         Chef c = CChef.Instancia.BuscarChef(documento);
                         if (c != null)
                         {
-                            m = new Propio(descripcion, c, horasElavoracion, porcentaje, ingredientes);
+                            m = new Propio(descripcion, c, horasElavoracion, ingredientes);
                             menus.Add(m);
                             mensaje = "Se ingreso el menu correctamente";
                         }
@@ -124,19 +124,19 @@ namespace ObligatorioDominio
 
             return mensaje;
         }
-        public string AltaMenuPreElaborado(string descripcion, string nombreProveedor, decimal precio, decimal porcentaje, decimal porcentajeMenu)
+        public string AltaMenuPreElaborado(string descripcion, string nombreProveedor, decimal precio)
         {
             string mensaje = "";
 
             Menu m = BuscarMenu(descripcion);
 
-            if (descripcion !="" && nombreProveedor != "" && precio > 0 && porcentaje >0 && porcentajeMenu > 0)
+            if (descripcion !="" && nombreProveedor != "" && precio > 0)
             {
 
                 if (m == null)
                 {
 
-                   m = new Preelaborado(descripcion, nombreProveedor, precio, porcentaje);
+                   m = new Preelaborado(descripcion, nombreProveedor, precio);
                     menus.Add(m);
                     mensaje = "El menu se a dado de alta";
 
@@ -296,13 +296,72 @@ namespace ObligatorioDominio
         }
 
 
+        public string CambiarCantidadIngrediente(int idIngrediente,decimal cantidad,int idmenu)
+        {
+            string mensaje = "";
+            Ingrediente i = CIngrediente.Instancia.BuscarIngrediente(idIngrediente);
+            Menu m = CMenu.Instancia.BuscarMenu(idmenu);
+            if (i != null && m != null)
+            {
+                IngredienteCantidad ing = m.BuscarIngredienteCantidad(i);
+                if (ing != null)
+                {
+                    ing.Cantidad = cantidad;
+                    mensaje = "Se modifico el la cantidad del ingrediente";
+                }
+                else
+                {
+                    mensaje = "El ingrediente no forma parte del menu";
+                }
+            }else
+            {
+                mensaje = "El ingrediente o el menu no existen";
+            }
+
+            return mensaje;
+        }
 
 
 
+        public List<Menu> ListarMenusPropios()
+        {
+            List<Menu> listaMenu = new List<Menu>();
+            foreach (Menu m in menus)
+            {
+                if (m.ConfirmarPropio())
+                {
+                    listaMenu.Add(m);
+                }
+            }
+            return listaMenu;
+        }
 
+        
+
+        public List<Ingrediente> ListarIngredientesMenu(int idMenu)
+        {
+            List<Ingrediente> listaIng = new List<Ingrediente>();
+            Menu m = BuscarMenu(idMenu);
+
+            if(m != null){
+                listaIng = m.ListarIngredientesCantidad();
+            }
+            return listaIng;
+
+        }
+
+        public void CargarDescuento(string[] datos)
+        {
+            int porcentaje = 0;
+            int.TryParse(datos[0], out porcentaje);
+
+            Preelaborado.Porcentaje = porcentaje;
+
+            
+
+        }
 
 
         #endregion
-
     }
 }
