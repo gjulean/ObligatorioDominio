@@ -323,6 +323,9 @@ namespace ObligatorioDominio
 
 
 
+
+
+
         public List<Menu> ListarMenusPropios()
         {
             List<Menu> listaMenu = new List<Menu>();
@@ -360,6 +363,12 @@ namespace ObligatorioDominio
             
 
         }
+
+
+
+
+
+
 
 
         #endregion

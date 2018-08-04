@@ -45,6 +45,19 @@ namespace ObligatorioDominio
             this.AltaIngrediente(codigo,descripcion,precio);
 
         }
+
+
+        public List<Ingrediente> Ingredientes()
+        {
+
+            return this.ingredientes;
+
+
+        }
+
+
+
+
         public Ingrediente BuscarIngrediente(int codigo)
         {
 

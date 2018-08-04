@@ -11,6 +11,8 @@ namespace ObligatorioDominio
 
         #region Atributos
 
+        private int id;
+        private static int ultId;
         private string nombreCliente;
         private int cantidad;
         private DateTime fechayhora;
@@ -84,6 +86,9 @@ namespace ObligatorioDominio
             this.fechayhora = fechayhora;
             this.mesa = mesa;
             this.menus = listaMenus;
+            this.id = Reserva.ultId;
+            Reserva.ultId++;
+
         }
         #endregion
 

@@ -38,6 +38,14 @@ namespace ObligatorioDominio
         }
 
 
+        public List<Reserva> Reservas()
+        {
+
+
+            return this.reservas;
+
+        }
+
 
 
         #region Metodos

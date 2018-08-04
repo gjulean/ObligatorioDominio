@@ -30,6 +30,17 @@ namespace ObligatorioDominio
 
         #region Metodos
 
+        public List<Mesa> Mesas()
+        {
+
+
+            return this.mesas;
+
+
+        }
+
+
+
         public Mesa BuscarMesa(int numero)
         {
 
